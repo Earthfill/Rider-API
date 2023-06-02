@@ -50,6 +50,20 @@ const checkRidesCollection = async () => {
 
 checkRidesCollection();
 
+// app.get('/', (request, response) => {
+//   response.send('Welcome to the Ride Sharing API');
+// });
+
+app.get('/', (request, response) => {
+  response.send('Welcome to the Ride Sharing API<br><br><a href="/rides">Click here</a> to see all rides');
+});
+
+app.get('/rides', (request, response) => {
+  Ride.find({}).then(rides => {
+    response.json(rides);
+  });
+});
+
 app.get('/rides/:id', (request, response) => {
   Ride.findById(request.params.id).then(ride => {
     response.json(ride)
@@ -102,7 +116,7 @@ app.delete('/rides/:id', (request, response) => {
 app.use(unknownEndpoint)
 app.use(errorHandler)
 
-const PORT = process.env.PORT
+const PORT = process.env.PORT || 3000
 app.listen(PORT, () => {
   console.log(`Server is running on port ${PORT}`);
 });
