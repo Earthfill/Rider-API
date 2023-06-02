@@ -55,7 +55,7 @@ checkRidesCollection();
 // });
 
 app.get('/', (request, response) => {
-  response.send('Welcome to the Ride Sharing API<br><br><a href="/rides">Click here</a> to see all dummy data rides');
+  response.send('Welcome to the Ride Sharing API<br><br><a href="/rides">Click here</a> to see all dummy data rides<br><br><br><br>OMOAKA-IYORAH KINGSLEY');
 });
 
 app.get('/rides', (request, response) => {
