@@ -50,10 +50,6 @@ const checkRidesCollection = async () => {
 
 checkRidesCollection();
 
-// app.get('/', (request, response) => {
-//   response.send('Welcome to the Ride Sharing API');
-// });
-
 app.get('/', (request, response) => {
   response.send('OMOAKA-IYORAH KINGSLEY<br><br>Welcome to the Ride Sharing API<br><br><a href="/rides">Click here</a> to see all dummy data rides');
 });
@@ -81,7 +77,11 @@ app.post('/rides', (request, response) => {
     origin: body.origin,
     destination: body.destination,
     distance: body.distance,
-    duration: body.duration
+    duration: body.duration,
+    vehicleName: body.vehicleName,
+    vehicleNumber: body.vehicleNumber,
+    vehicleColor: body.vehicleColor,
+    driverName: body.driverName
   })
 
   ride.save().then(savedRide => {
@@ -96,7 +96,11 @@ app.put('/rides/:id', (request, response, next) => {
     origin: body.origin,
     destination: body.destination,
     distance: body.distance,
-    duration: body.duration
+    duration: body.duration,
+    vehicleName: body.vehicleName,
+    vehicleNumber: body.vehicleNumber,
+    vehicleColor: body.vehicleColor,
+    driverName: body.driverName
   }
 
   Ride.findByIdAndUpdate(request.params.id, ride, { new: true })

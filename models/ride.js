@@ -18,7 +18,11 @@ const rideSchema = new mongoose.Schema({
   origin: String,
   destination: String,
   distance: String,
-  duration: String
+  duration: String,
+  vehicleName: String,
+  vehicleNumber: String,
+  vehicleColor: String,
+  driverName: String
 })
 
 rideSchema.set('toJSON', {
